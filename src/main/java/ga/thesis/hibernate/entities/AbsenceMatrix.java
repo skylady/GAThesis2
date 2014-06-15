@@ -7,7 +7,7 @@ import java.io.Serializable;
  * Created by sky_lady on 6/14/14.
  */
 @Entity
-@Table(name = "AbsencePeriod")
+@Table(name = "AbsenceMatrix")
 public class AbsenceMatrix implements Serializable {
     private static final long serialVersionUID = -5170875020617735651L;
     @Id

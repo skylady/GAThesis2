@@ -8,7 +8,7 @@ import java.util.Set;
  * Created by sky_lady on 6/14/14.
  */
 @Entity
-@Table(name="Period")
+@Table(name = "Period")
 public class Period implements Serializable {
     private static final long serialVersionUID = -5170875020617735654L; //?
 
@@ -20,8 +20,8 @@ public class Period implements Serializable {
     @Column(name = "period", nullable = false)
     private String period;
 
-    @Column(name = "dayOfTheWek", nullable = false)
-    private Integer dayOfTheWek;
+    @Column(name = "day_of_the_week", nullable = false)
+    private Integer dayOfTheWeek;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -34,22 +34,19 @@ public class Period implements Serializable {
         this.id = id;
     }
 
-    @Column(name = "period", nullable = false)
     public String getPeriod() {
         return period;
     }
-
 
     public void setPeriod(String period) {
         this.period = period;
     }
 
-    @Column(name = "dayOfTheWek", nullable = false)
-    public Integer getDayOfTheWek() {
-        return dayOfTheWek;
+    public Integer getDayOfTheWeek() {
+        return dayOfTheWeek;
     }
 
-    public void setDayOfTheWek(Integer dayOfTheWek) {
-        this.dayOfTheWek = dayOfTheWek;
+    public void setDayOfTheWeek(Integer dayOfTheWeek) {
+        this.dayOfTheWeek = dayOfTheWeek;
     }
 }

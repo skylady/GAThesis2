@@ -15,9 +15,20 @@ public class Teacher implements Serializable {
     @Column(name = "id")
     private long id;
 
+    @Column(name = "name", nullable = false)
+    private String name;
+
     @OneToOne
-    @JoinColumn(name = "AbsenceMatrix")
+    @JoinColumn(name = "id_absence_matrix")
     private AbsenceMatrix idAbsenceMatrix;
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
+    }
 
     public AbsenceMatrix getIdAbsenceMatrix() {
         return idAbsenceMatrix;
@@ -27,11 +38,11 @@ public class Teacher implements Serializable {
         this.idAbsenceMatrix = idAbsenceMatrix;
     }
 
-    public long getId() {
-        return id;
+    public String getName() {
+        return name;
     }
 
-    public void setId(long id) {
-        this.id = id;
+    public void setName(String name) {
+        this.name = name;
     }
 }

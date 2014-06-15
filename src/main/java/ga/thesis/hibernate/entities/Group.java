@@ -19,7 +19,7 @@ public class Group implements Serializable{
     private String groupNumber;
 
     @OneToOne
-    @JoinColumn(name = "GroupCode")
+    @JoinColumn(name = "group_code_id")
     private GroupCode idGroupCode;
 
     public GroupCode getIdGroupCode() {

@@ -16,8 +16,12 @@ public class AbsencePeriod implements Serializable {
     private long id;
 
     @OneToOne
-    @JoinColumn(name = "Period", nullable = false)
+    @JoinColumn(name = "period_id", nullable = false)
     private Period idPeriod;
+
+    @OneToOne
+    @JoinColumn(name = "absence_matrix_id", nullable = false)
+    private AbsenceMatrix idAbsenceMatrix;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -30,8 +34,14 @@ public class AbsencePeriod implements Serializable {
         this.id = id;
     }
 
-    @OneToOne
-    @JoinColumn(name = "Period", nullable = false)
+    public AbsenceMatrix getIdAbsenceMatrix() {
+        return idAbsenceMatrix;
+    }
+
+    public void setIdAbsenceMatrix(AbsenceMatrix idAbsenceMatrix) {
+        this.idAbsenceMatrix = idAbsenceMatrix;
+    }
+
     public Period getIdPeriod() {
         return idPeriod;
     }
@@ -40,3 +50,5 @@ public class AbsencePeriod implements Serializable {
         this.idPeriod = idPeriod;
     }
 }
+
+

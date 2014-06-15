@@ -16,12 +16,12 @@ public class StudentList implements Serializable {
     @Column(name="id")
     private long id;
 
-    @Column (name = "student",nullable=false)
-    private String auditoryNumber;
+    @Column (name = "student_name",nullable=false)
+    private String studentName;
 
     @ManyToOne
-    @JoinColumn(name = "GroupList")
-    private GroupList groupListId;
+    @JoinColumn(name = "group_list_id")
+    private GroupList idGroupList;
 
     public long getId() {
         return id;
@@ -31,19 +31,19 @@ public class StudentList implements Serializable {
         this.id = id;
     }
 
-    public GroupList getGroupListId() {
-        return groupListId;
+    public String getStudentName() {
+        return studentName;
     }
 
-    public void setGroupListId(GroupList groupListId) {
-        this.groupListId = groupListId;
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
     }
 
-    public String getAuditoryNumber() {
-        return auditoryNumber;
+    public GroupList getIdGroupList() {
+        return idGroupList;
     }
 
-    public void setAuditoryNumber(String auditoryNumber) {
-        this.auditoryNumber = auditoryNumber;
+    public void setIdGroupList(GroupList idGroupList) {
+        this.idGroupList = idGroupList;
     }
 }
