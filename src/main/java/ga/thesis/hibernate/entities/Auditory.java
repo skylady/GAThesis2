@@ -24,9 +24,6 @@ public class Auditory implements Serializable {
     @Column(name = "auditory_type", nullable = false)
     private String auditoryType;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
     public long getId() {
         return id;
     }
@@ -35,7 +32,6 @@ public class Auditory implements Serializable {
         this.id = id;
     }
 
-    @Column(name = "auditory_size", nullable = false)
     public Integer getAuditorySize() {
         return auditorySize;
     }
@@ -44,7 +40,6 @@ public class Auditory implements Serializable {
         this.auditorySize = auditorySize;
     }
 
-    @Column(name = "auditory_number", nullable = false)
     public String getAuditoryNumber() {
         return auditoryNumber;
     }
@@ -53,7 +48,6 @@ public class Auditory implements Serializable {
         this.auditoryNumber = auditoryNumber;
     }
 
-    @Column(name = "auditory_type", nullable = false)
     public String getAuditoryType() {
         return auditoryType;
     }

@@ -23,9 +23,6 @@ public class Period implements Serializable {
     @Column(name = "day_of_the_week", nullable = false)
     private Integer dayOfTheWeek;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
     public long getId() {
         return id;
     }

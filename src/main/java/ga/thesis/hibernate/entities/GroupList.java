@@ -15,9 +15,6 @@ public class GroupList implements Serializable {
     @Column(name = "id")
     private long id;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id")
     public long getId() {
         return id;
     }

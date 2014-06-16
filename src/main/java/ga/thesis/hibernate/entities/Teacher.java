@@ -19,7 +19,7 @@ public class Teacher implements Serializable {
     private String name;
 
     @OneToOne
-    @JoinColumn(name = "id_absence_matrix")
+    @JoinColumn(name = "id_absence_matrix", nullable = true)
     private AbsenceMatrix idAbsenceMatrix;
 
     public long getId() {
