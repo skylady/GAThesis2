@@ -23,9 +23,6 @@ public class AbsencePeriod implements Serializable {
     @JoinColumn(name = "absence_matrix_id", nullable = false)
     private AbsenceMatrix idAbsenceMatrix;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
     public long getId() {
         return id;
     }

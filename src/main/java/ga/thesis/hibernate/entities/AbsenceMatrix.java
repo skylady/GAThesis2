@@ -15,9 +15,6 @@ public class AbsenceMatrix implements Serializable {
     @Column(name = "id", nullable = false)
     private long id;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
     public long getId() {
         return id;
     }

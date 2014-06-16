@@ -3,20 +3,24 @@ package ga.thesis.hibernate.service;
 
 import ga.thesis.hibernate.entities.Teacher;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
+import javax.persistence.EntityManagerFactory;
 import javax.transaction.Transactional;
 
+@Repository
 @Component("teacherService")
 @Transactional
 public class TeacherServiceImpl implements TeacherService {
 
-    private final TeacherRepository teacherRepository;
+    @Autowired
+    @Qualifier("teacherRepository")
+    private TeacherRepository teacherRepository;
 
     @Autowired
-    public TeacherServiceImpl(TeacherRepository teacherRepository) {
-        this.teacherRepository = teacherRepository;
-    }
+    private EntityManagerFactory entityManagerFactory;
 
     @Override
     public Teacher findOne(long id) {
