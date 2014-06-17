@@ -1,7 +1,7 @@
 package ga.thesis.hibernate.service;
 
 
-import ga.thesis.hibernate.entities.Teacher;
+import ga.thesis.hibernate.entities.AbsenceMatrix;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.data.repository.CrudRepository;
@@ -12,14 +12,15 @@ import javax.transaction.Transactional;
 
 @Repository
 @Transactional
-public class TeacherServiceImpl extends CRUDServiceImpl<Teacher, Long> implements TeacherService {
+public class AbsenceMatrixServiceImpl extends CRUDServiceImpl<AbsenceMatrix, Long> implements AbsenceMatrixService {
 
     @Autowired
-    @Qualifier("teacherRepository")
-    private TeacherRepository teacherRepository;
+    @Qualifier("absenceMatrixRepository")
+    private AbsenceMatrixRepository absenceMatrixRepository;
+
 
     @Override
-    protected CrudRepository<Teacher, Long> getRepository() {
-        return teacherRepository;
+    protected CrudRepository<AbsenceMatrix, Long> getRepository() {
+        return absenceMatrixRepository;
     }
 }

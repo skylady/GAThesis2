@@ -21,6 +21,7 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import javax.annotation.Resource;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
@@ -39,8 +40,13 @@ public class PersistenceConfig implements CommandLineRunner {
     private Environment environment;
 
     @Autowired
-    @Qualifier("teacherService")
     private TeacherService teacherService;
+
+    @Autowired
+    private AbsenceMatrixService absenceMatrixService;
+
+    @Autowired
+    private AbsencePeriodService absencePeriodService;
 
 
     public static void main(String[] args) {
@@ -117,6 +123,12 @@ public class PersistenceConfig implements CommandLineRunner {
     public void run(String... strings) throws Exception {
         Teacher teacher = new Teacher();
         teacher.setName("del");
+        AbsenceMatrix absenceMatrix = new AbsenceMatrix();
+        absenceMatrixService.create(absenceMatrix);
+//        absenceMatrix.setId(14);
+        teacher.setIdAbsenceMatrix(absenceMatrix);
         teacherService.create(teacher);
+      //  absenceMatrixService.create(absenceMatrix);
+
     }
 }

@@ -1,12 +1,10 @@
 package ga.thesis.hibernate.service;
 
-import java.util.List;
+public interface CRUDService<T, ID> {
 
-public interface CRUDService<T> {
+    public T findOne(final ID id);
 
-    public T findOne(final long id);
-
-    public Iterable<ga.thesis.hibernate.entities.Teacher> findAll();
+    public Iterable<T> findAll();
 
     public void create(final T entity);
 
@@ -14,5 +12,5 @@ public interface CRUDService<T> {
 
     public void delete(final T entity);
 
-    public void deleteById(final long entityId);
+    public void deleteById(final ID entityId);
 }
