@@ -8,6 +8,16 @@ public class Auditory {
 	private String auditoryNumber;
 	private int auditorySize;
 
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    private String type;
+
 	public Auditory(int id, String auditoryNumber, int auditorySize) {
 		this.id = id;
 		this.auditoryNumber = auditoryNumber;

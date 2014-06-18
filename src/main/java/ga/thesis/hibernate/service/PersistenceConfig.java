@@ -1,6 +1,9 @@
 package ga.thesis.hibernate.service;
 
+import ga.thesis.entities.Auditory;
 import ga.thesis.hibernate.entities.AbsenceMatrix;
+import ga.thesis.hibernate.entities.AbsencePeriod;
+import ga.thesis.hibernate.entities.StudentList;
 import ga.thesis.hibernate.entities.Teacher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -47,6 +50,12 @@ public class PersistenceConfig implements CommandLineRunner {
 
     @Autowired
     private AbsencePeriodService absencePeriodService;
+
+    @Autowired
+    private AuditoryService auditoryService;
+
+    @Autowired
+    private StudentListService studentListService;
 
 
     public static void main(String[] args) {
@@ -125,10 +134,22 @@ public class PersistenceConfig implements CommandLineRunner {
         teacher.setName("del");
         AbsenceMatrix absenceMatrix = new AbsenceMatrix();
         absenceMatrixService.create(absenceMatrix);
-//        absenceMatrix.setId(14);
         teacher.setIdAbsenceMatrix(absenceMatrix);
         teacherService.create(teacher);
-      //  absenceMatrixService.create(absenceMatrix);
+
+        //new-------------------------------
+
+        AbsencePeriod absencePeriod = new AbsencePeriod();
+        // absencePeriod.setIdPeriod();
+
+        ga.thesis.hibernate.entities.Auditory auditory = new ga.thesis.hibernate.entities.Auditory();
+        auditory.setAuditoryNumber("223");
+        auditory.setAuditorySize(40);
+        auditory.setAuditoryType("lect");
+        auditoryService.create(auditory);
+
+        StudentList studentList = new StudentList();
+       // studentList.
 
     }
 }
