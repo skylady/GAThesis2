@@ -10,8 +10,8 @@ public class GroupCode {
     private Lecturer lecturer;
     private int groupSize;
     private String weeks;
-	//private String groupType;
-    //private ArrayList<Integer> groupList;
+	private String groupType;
+    private ArrayList<Integer> groupList;
 
     public GroupCode(int id, String subject, String subjectType, Lecturer lecturer,
             int groupSize, String weeks) {

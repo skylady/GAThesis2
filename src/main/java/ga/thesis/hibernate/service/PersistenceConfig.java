@@ -1,10 +1,6 @@
 package ga.thesis.hibernate.service;
 
-import ga.thesis.entities.Auditory;
-import ga.thesis.hibernate.entities.AbsenceMatrix;
-import ga.thesis.hibernate.entities.AbsencePeriod;
-import ga.thesis.hibernate.entities.StudentList;
-import ga.thesis.hibernate.entities.Teacher;
+import ga.thesis.hibernate.entities.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.CommandLineRunner;
@@ -56,6 +52,18 @@ public class PersistenceConfig implements CommandLineRunner {
 
     @Autowired
     private StudentListService studentListService;
+
+    @Autowired
+    private GroupListService groupListService;
+
+    @Autowired
+    private PeriodService periodService;
+
+    @Autowired
+    private GroupService groupService;
+
+    @Autowired
+    private GroupCodeService groupCodeService;
 
 
     public static void main(String[] args) {
@@ -124,6 +132,9 @@ public class PersistenceConfig implements CommandLineRunner {
             {
                 setProperty("hibernate.dialect", environment.getProperty("hibernate.dialect"));
                 setProperty("hibernate.show_sql", environment.getProperty("hibernate.show_sql"));
+                setProperty("hibernate.connection.characterEncoding", environment.getProperty("hibernate.connection.characterEncoding"));
+                setProperty("hibernate.connection.useUnicode", environment.getProperty("hibernate.connection.useUnicode"));
+                setProperty("hibernate.connection.charSet", environment.getProperty("hibernate.connection.charSet"));
             }
         };
     }
@@ -139,17 +150,52 @@ public class PersistenceConfig implements CommandLineRunner {
 
         //new-------------------------------
 
-        AbsencePeriod absencePeriod = new AbsencePeriod();
-        // absencePeriod.setIdPeriod();
-
-        ga.thesis.hibernate.entities.Auditory auditory = new ga.thesis.hibernate.entities.Auditory();
+        Auditory auditory = new Auditory();
         auditory.setAuditoryNumber("223");
         auditory.setAuditorySize(40);
         auditory.setAuditoryType("lect");
         auditoryService.create(auditory);
 
-        StudentList studentList = new StudentList();
-       // studentList.
+        //groupList
+        GroupList groupList = new GroupList();
+        groupListService.create(groupList);
 
+        //studentList
+
+        StudentList studentList = new StudentList();
+        studentList.setStudentName("Pasichnyk");
+        studentList.setIdGroupList(groupList);
+        studentListService.create(studentList);
+
+        //period
+        Period period = new Period();
+        period.setDayOfTheWeek("Wednesday");
+        period.setPeriod(1);
+        periodService.create(period);
+
+        //absencePeriod
+        AbsencePeriod absencePeriod = new AbsencePeriod();
+        absencePeriod.setIdAbsenceMatrix(absenceMatrix);
+        absencePeriod.setIdPeriod(period);
+        absencePeriodService.create(absencePeriod);
+
+        //GroupCode
+        GroupCode groupCode = new GroupCode();
+
+        groupCode.setSubject("ГА");
+        groupCode.setSubjectType("л");
+        groupCode.setGroupType("тип 1");
+        groupCode.setWeekNumbers("1-14");
+        groupCode.setIdGroupList(groupList);
+        groupCode.setIdGroupTeacher(teacher);
+        groupCode.setGroupSize(10);
+        groupCodeService.create(groupCode);
+
+        //Group
+        Group group = new Group();
+        group.setCourse("gggg2");
+        group.setGroupNumber(1);
+        group.setIdGroupCode(groupCode);
+        groupService.create(group);
     }
 }

@@ -11,7 +11,7 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 -- -----------------------------------------------------
 -- Schema timetable
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `timetable` DEFAULT CHARACTER SET utf8 ;
+CREATE SCHEMA IF NOT EXISTS `timetable` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `timetable` ;
 
 -- -----------------------------------------------------
@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS `timetable`.`AbsenceMatrix` (
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 11
-DEFAULT CHARACTER SET = utf8;
+DEFAULT CHARACTER SET = utf8 COLLATE utf8_general_ci ;
 
 
 -- -----------------------------------------------------
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `timetable`.`Period` (
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 4
-DEFAULT CHARACTER SET = utf8;
+DEFAULT CHARACTER SET = utf8 COLLATE utf8_general_ci ;
 
 
 -- -----------------------------------------------------
@@ -55,7 +55,7 @@ CREATE TABLE IF NOT EXISTS `timetable`.`AbsencePeriod` (
     FOREIGN KEY (`absence_matrix_id`)
     REFERENCES `timetable`.`AbsenceMatrix` (`id`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+DEFAULT CHARACTER SET = utf8 COLLATE utf8_general_ci ;
 
 
 -- -----------------------------------------------------
@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `timetable`.`Auditory` (
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 17
-DEFAULT CHARACTER SET = utf8;
+DEFAULT CHARACTER SET = utf8 COLLATE utf8_general_ci ;
 
 
 -- -----------------------------------------------------
@@ -80,7 +80,7 @@ CREATE TABLE IF NOT EXISTS `timetable`.`GroupList` (
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 11
-DEFAULT CHARACTER SET = utf8;
+DEFAULT CHARACTER SET = utf8 COLLATE utf8_general_ci ;
 
 
 -- -----------------------------------------------------
@@ -96,7 +96,7 @@ CREATE TABLE IF NOT EXISTS `timetable`.`Teacher` (
     FOREIGN KEY (`id_absence_matrix`)
     REFERENCES `timetable`.`AbsenceMatrix` (`id`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+DEFAULT CHARACTER SET = utf8 COLLATE utf8_general_ci ;
 
 
 -- -----------------------------------------------------
@@ -104,7 +104,6 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `timetable`.`GroupCode` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
-  `course` VARCHAR(255) NOT NULL,
   `subject` VARCHAR(255) NOT NULL,
   `subject_type` VARCHAR(255) NOT NULL,
   `week_numbers` VARCHAR(255) NOT NULL,
@@ -121,7 +120,7 @@ CREATE TABLE IF NOT EXISTS `timetable`.`GroupCode` (
     FOREIGN KEY (`teacher_id`)
     REFERENCES `timetable`.`Teacher` (`id`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+DEFAULT CHARACTER SET = utf8 COLLATE utf8_general_ci ;
 
 
 -- -----------------------------------------------------
@@ -129,6 +128,7 @@ DEFAULT CHARACTER SET = utf8;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `timetable`.`Group` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `course` VARCHAR(255) NOT NULL,
   `group_number` INT(11) NOT NULL,
   `group_code_id` INT(11) NOT NULL,
   PRIMARY KEY (`id`),
@@ -137,7 +137,7 @@ CREATE TABLE IF NOT EXISTS `timetable`.`Group` (
     FOREIGN KEY (`group_code_id`)
     REFERENCES `timetable`.`GroupCode` (`id`))
 ENGINE = InnoDB
-DEFAULT CHARACTER SET = utf8;
+DEFAULT CHARACTER SET = utf8 COLLATE utf8_general_ci ;
 
 
 -- -----------------------------------------------------

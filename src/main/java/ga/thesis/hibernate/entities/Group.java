@@ -7,7 +7,7 @@ import java.io.Serializable;
  * Created by sky_lady on 6/14/14.
  */
 @Entity
-@Table(name = "Group")
+@Table(name = "`Group`")
 public class Group implements Serializable{
     private static final long serialVersionUID = -5170875020617735673L;
     @Id
@@ -16,11 +16,15 @@ public class Group implements Serializable{
     private long id;
 
     @Column(name = "group_number", nullable = false)
-    private String groupNumber;
+    private Integer groupNumber;
 
     @OneToOne
-    @JoinColumn(name = "group_code_id")
+    @JoinColumn(name = "group_code_id",nullable = false)
     private GroupCode idGroupCode;
+
+
+    @Column(name = "course", nullable = false)
+    private String course;
 
     public GroupCode getIdGroupCode() {
         return idGroupCode;
@@ -30,11 +34,11 @@ public class Group implements Serializable{
         this.idGroupCode = idGroupCode;
     }
 
-    public String getGroupNumber() {
+    public Integer getGroupNumber() {
         return groupNumber;
     }
 
-    public void setGroupNumber(String groupNumber) {
+    public void setGroupNumber(Integer groupNumber) {
         this.groupNumber = groupNumber;
     }
 
@@ -44,5 +48,13 @@ public class Group implements Serializable{
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getCourse() {
+        return course;
+    }
+
+    public void setCourse(String course) {
+        this.course = course;
     }
 }

@@ -16,11 +16,19 @@ public class GroupCode implements Serializable {
     @Column(name = "id")
     private long id;
 
-    @Column(name = "course", nullable = false)
-    private String course;
-
     @Column(name = "subject", nullable = false)
-    private Integer subject;
+    private String subject;
+
+    @Column(name = "groupSize", nullable = false)
+    private Integer groupSize;
+
+    public Integer getGroupSize() {
+        return groupSize;
+    }
+
+    public void setGroupSize(Integer groupSize) {
+        this.groupSize = groupSize;
+    }
 
     @Column(name = "subject_type", nullable = false)
     private String subjectType;
@@ -29,15 +37,15 @@ public class GroupCode implements Serializable {
     private String weekNumbers;
 
     @Column(name = "group_type", nullable = false)
-    private Integer groupType;
+    private String groupType;
 
     @OneToOne
     @JoinColumn(name = "group_list_id")
-    private GroupCode idGroupList;
+    private GroupList idGroupList;
 
     @OneToOne
     @JoinColumn(name = "teacher_id")
-    private GroupCode idGroupTeacher;
+    private Teacher idGroupTeacher;
 
     public long getId() {
         return id;
@@ -47,11 +55,11 @@ public class GroupCode implements Serializable {
         this.id = id;
     }
 
-    public GroupCode getIdGroupList() {
+    public GroupList getIdGroupList() {
         return idGroupList;
     }
 
-    public void setIdGroupList(GroupCode idGroupList) {
+    public void setIdGroupList(GroupList idGroupList) {
         this.idGroupList = idGroupList;
     }
 
@@ -63,20 +71,12 @@ public class GroupCode implements Serializable {
         this.weekNumbers = weekNumbers;
     }
 
-    public Integer getSubject() {
+    public String getSubject() {
         return subject;
     }
 
-    public void setSubject(Integer subject) {
+    public void setSubject(String subject) {
         this.subject = subject;
-    }
-
-    public String getCourse() {
-        return course;
-    }
-
-    public void setCourse(String course) {
-        this.course = course;
     }
 
     public String getSubjectType() {
@@ -87,19 +87,19 @@ public class GroupCode implements Serializable {
         this.subjectType = subjectType;
     }
 
-    public Integer getGroupType() {
+    public String getGroupType() {
         return groupType;
     }
 
-    public void setGroupType(Integer groupType) {
+    public void setGroupType(String groupType) {
         this.groupType = groupType;
     }
 
-    public GroupCode getIdGroupTeacher() {
+    public Teacher getIdGroupTeacher() {
         return idGroupTeacher;
     }
 
-    public void setIdGroupTeacher(GroupCode idGroupTeacher) {
+    public void setIdGroupTeacher(Teacher idGroupTeacher) {
         this.idGroupTeacher = idGroupTeacher;
     }
 }

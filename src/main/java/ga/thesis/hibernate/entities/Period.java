@@ -18,10 +18,10 @@ public class Period implements Serializable {
     private long id;
 
     @Column(name = "period", nullable = false)
-    private String period;
+    private Integer period;
 
     @Column(name = "day_of_the_week", nullable = false)
-    private Integer dayOfTheWeek;
+    private String dayOfTheWeek;
 
     public long getId() {
         return id;
@@ -31,19 +31,19 @@ public class Period implements Serializable {
         this.id = id;
     }
 
-    public String getPeriod() {
-        return period;
-    }
-
-    public void setPeriod(String period) {
-        this.period = period;
-    }
-
-    public Integer getDayOfTheWeek() {
+    public String getDayOfTheWeek() {
         return dayOfTheWeek;
     }
 
-    public void setDayOfTheWeek(Integer dayOfTheWeek) {
+    public void setDayOfTheWeek(String dayOfTheWeek) {
         this.dayOfTheWeek = dayOfTheWeek;
+    }
+
+    public Integer getPeriod() {
+        return period;
+    }
+
+    public void setPeriod(Integer period) {
+        this.period = period;
     }
 }
