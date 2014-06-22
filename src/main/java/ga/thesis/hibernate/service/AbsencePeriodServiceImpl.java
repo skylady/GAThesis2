@@ -3,7 +3,6 @@ package ga.thesis.hibernate.service;
 
 import ga.thesis.hibernate.entities.AbsencePeriod;
 import org.springframework.data.repository.CrudRepository;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.Resource;
@@ -21,3 +20,4 @@ public class AbsencePeriodServiceImpl extends CRUDServiceImpl<AbsencePeriod, Lon
         return absencePeriodRepository;
     }
 }
+
