@@ -1,0 +1,147 @@
+JFDML JFormDesigner: "5.2.0.0.109" Java: "1.6.0_65" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {space :p:110:p, par l {seq l {comp jButton2:::p:387:p, space :::p, comp jLabel6:::p::p}, comp jButton1::l:p:387:p}, space :::x}, seq t {space ::20:x, par l {seq t {comp jLabel1:::p::p, space :p:164:p}, seq t {par t:::p {comp jButton5::t:::x, comp jButton3::t:::x, comp jButton4::t:::x, comp jButton6::t:::x, comp jButton7::t:::x, comp jButton8::t:::x}, space :::p, par l:::p {comp jTextField1:::::x, comp jTextField2:::::x, comp jTextField3:::::x, comp jTextField7:::::x, comp jTextField8::l:::x, comp jTextField9::l:p:48:p}, space :p:39:p, par l:::p {comp jButton10:::::x, comp jButton11:::::x, comp jButton9:::::x, comp jButton12::l:::x}, space u:::p, par l:::p {comp jComboBox4::l:::x, comp jComboBox2::l:::x, comp jComboBox1::l:::x, comp jComboBox3::l:::x}, space :p:20:p}}}}"
+			"$verticalGroup": "par l {seq {comp jLabel1:::p::p, space :::x, comp jLabel6:::p:13:p, space :::p, par l {seq l {par b {comp jTextField1::b:p:23:p, comp jButton3::b:p::p}, space :::p, par l {comp jButton4:::p::p, comp jTextField2:::p:26:p}, space :::p, par l:::p {comp jButton5:::::x, comp jTextField3:::p:23:p}, space :::p, par t {comp jButton6:::p::p, comp jTextField7:::p:28:p}, space :::p, par t {comp jButton8:::p::p, seq t {comp jTextField8:::p:23:p, space :2:2:p}}, space :::p, par t {comp jButton7:::p::p, seq t {comp jTextField9:::p:24:p, space :2:2:p}}}, seq l {par b {comp jButton12::b:p::p, comp jComboBox4::b:p::p}, space s:::p, par b {comp jButton11::b:p::p, comp jComboBox3::b:p::p}, space s:::p, par b {comp jButton10::b:p::p, comp jComboBox2::b:p::p}, space s:::p, par b {comp jButton9::b:p::p, comp jComboBox1::b:p::p}}}, space :p:43:p, comp jButton1:::p:35:p, space u:::p, comp jButton2:::p:35:p, space :::p}}"
+		} ) {
+			name: "this"
+			"defaultCloseOperation": 3
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "jTextField3"
+				"horizontalAlignment": 0
+				"text": "1.0"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jTextField3ActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "jTextField1"
+				"horizontalAlignment": 0
+				"text": "500"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jTextField1ActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "jTextField2"
+				"horizontalAlignment": 0
+				"text": "1500"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jTextField2ActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "jComboBox1"
+				"model": new javax.swing.DefaultComboBoxModel {
+					selectedItem: "Insertion"
+					addElement( "Insertion" )
+				}
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "jLabel6"
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "jComboBox2"
+				"model": new javax.swing.DefaultComboBoxModel {
+					selectedItem: "Uniform"
+					addElement( "Uniform" )
+				}
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "jComboBox3"
+				"model": new javax.swing.DefaultComboBoxModel {
+					selectedItem: "PMX"
+					addElement( "PMX" )
+					addElement( "OX" )
+				}
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "jButton1"
+				"font": new java.awt.Font( "Courier New", 0, 14 )
+				"text": "Встановити нові параметри"
+				addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "jButton1MouseClicked", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "jButton2"
+				"font": new java.awt.Font( "Courier New", 0, 14 )
+				"text": "Втановити параметри за замовченям"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "jTextField7"
+				"horizontalAlignment": 0
+				"text": "0.15"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jTextField7ActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "jTextField8"
+				"horizontalAlignment": 0
+				"text": "5"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jTextField8ActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "jTextField9"
+				"horizontalAlignment": 0
+				"text": "1.0"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jTextField9ActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "jButton3"
+				"text": "К-сть ітерацій"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "jButton4"
+				"text": "Розмір популяції"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "jButton5"
+				"text": "Ймовірність кросинговеру"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "jButton6"
+				"text": "Ймовірність мутації"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "jButton7"
+				"text": "% еліти"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jButton7ActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "jButton8"
+				"text": "Розмір турніру"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jButton8ActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "jLabel1"
+				"font": new java.awt.Font( "Courier New", 0, 20 )
+				"text": "Налаштування алгоритму"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "jButton9"
+				"text": "Тип мутації"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jButton9ActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "jButton10"
+				"text": "Тип кросинговеру аудиторій, пар"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jButton10ActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "jButton11"
+				"text": "Тип кросинговеру груп"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jButton11ActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "jButton12"
+				"text": "Тип відбору"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jButton12ActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JComboBox" ) {
+				name: "jComboBox4"
+				"model": new javax.swing.DefaultComboBoxModel {
+					selectedItem: "Tourtament"
+					addElement( "Tourtament" )
+					addElement( "Proportional" )
+				}
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"size": new java.awt.Dimension( 400, 300 )
+		} )
+	}
+}

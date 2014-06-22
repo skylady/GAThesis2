@@ -1,0 +1,63 @@
+JFDML JFormDesigner: "5.2.0.0.109" Java: "1.6.0_65" encoding: "UTF-8"
+
+new FormModel {
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {par l {seq l {space :p:36:p, par t:::p {comp jButton4:::::x, comp jButton1::t:::x, comp jButton2::t:::x, comp jButton5:::::x}, space s:::p, par l:::p {comp jTextField2:::::x, comp jTextField3:::::x, comp jTextField4:::::x, comp jTextField1::l:::x}}, seq l {space :p:98:p, comp jButton6:::p::p}, seq l {space :p:61:p, comp jLabel1:::p::p}}, space ::45:x}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp jLabel1:::p::p, space :p:31:p, par b {comp jButton1::b:p::p, comp jTextField1::b:p::p}, space u:::p, par b {comp jButton2::b:p::p, comp jTextField2::b:p::p}, space u:::p, par b {comp jButton4::b:p::p, comp jTextField3::b:p::p}, space u:::p, par b {comp jButton5::b:p::p, comp jTextField4::b:p::p}, space ::27:x, comp jButton6:::p::p, space :p:24:p}}"
+		} ) {
+			name: "this"
+			"defaultCloseOperation": 3
+			add( new FormComponent( "javax.swing.JLabel" ) {
+				name: "jLabel1"
+				"font": new java.awt.Font( "Courier New", 0, 20 )
+				"text": "З'єднання з БД"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "jButton1"
+				"text": "Адреса БД"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "jButton2"
+				"text": "Назва БД"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "jButton4"
+				"text": "Користувач БД"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "jButton4ActionPerformed", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "jButton5"
+				"text": "Пароль"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "jTextField1"
+				"text": "localhost"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "jTextField2"
+				"text": "timetable"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "jTextField3"
+				"text": "root"
+			} )
+			add( new FormComponent( "javax.swing.JTextField" ) {
+				name: "jTextField4"
+				"text": "root"
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "jButton6"
+				"font": new java.awt.Font( "Courier New", 0, 14 )
+				"text": "З'єднання"
+			} )
+		}, new FormLayoutConstraints( null ) {
+			"size": new java.awt.Dimension( 400, 300 )
+		} )
+		add( new FormComponent( "javax.swing.JButton" ) {
+			name: "jButton3"
+			"text": "jButton3"
+		} )
+	}
+}

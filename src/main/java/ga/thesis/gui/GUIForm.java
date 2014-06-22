@@ -195,7 +195,7 @@ public class GUIForm extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    // Generated using JFormDesigner Evaluation license - unknown
+    // Generated using JFormDesigner Evaluation license - Marianna Pasichnyk
     private void initComponents() {
         jMenuBar1 = new JMenuBar();
         jMenu2 = new JMenu();
@@ -215,7 +215,7 @@ public class GUIForm extends javax.swing.JFrame {
         jMenuItem1 = new JMenuItem();
 
         //======== this ========
-        setDefaultCloseOperation(3);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setTitle("\u041f\u0440\u043e\u0433\u0440\u0430\u043c\u0430 \u043f\u043e\u0431\u0443\u0434\u043e\u0432\u0438 \u0440\u043e\u0437\u043a\u043b\u0430\u0434\u0443");
         Container contentPane = getContentPane();
 
@@ -302,8 +302,9 @@ public class GUIForm extends javax.swing.JFrame {
         //---- jLabel1 ----
         jLabel1.setBackground(new Color(204, 204, 255));
         jLabel1.setFont(new Font("Courier New", Font.PLAIN, 20));
-        jLabel1.setHorizontalAlignment(0);
+        jLabel1.setHorizontalAlignment(SwingConstants.CENTER);
         jLabel1.setText("\u041f\u0440\u043e\u0433\u0440\u0430\u043c\u0430 \u043f\u043e\u0431\u0443\u0434\u043e\u0432\u0438 \u0440\u043e\u0437\u043a\u043b\u0430\u0434\u0443");
+        jLabel1.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 
         //======== jScrollPane1 ========
         {
@@ -464,7 +465,7 @@ public class GUIForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - unknown
+    // Generated using JFormDesigner Evaluation license - Marianna Pasichnyk
     private JMenuBar jMenuBar1;
     private JMenu jMenu2;
     private JMenu jMenu6;
