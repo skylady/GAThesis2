@@ -1,6 +1,7 @@
 package ga.thesis.entities;
 
 import ga.thesis.crossover.PMX;
+import ga.thesis.gui.main.GUIForm;
 import ga.thesis.mutation.ExchangeMutation;
 import ga.thesis.restrictions.HardRestrictions;
 import ga.thesis.restrictions.SoftRestrictions;
@@ -9,9 +10,6 @@ import ga.thesis.testdata.AuditoriesTestData;
 import ga.thesis.testdata.GroupTestData;
 import ga.thesis.testdata.Pair;
 import ga.thesis.testdata.PeriodTestData;
-import ga.thesis.gui.GUIForm;
-import ga.thesis.testdata.TestData;
-import ga.thesis.textwriter.TableExample;
 
 import java.util.*;
 
