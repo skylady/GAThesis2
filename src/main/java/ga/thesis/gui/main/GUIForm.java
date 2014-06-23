@@ -3,33 +3,23 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ga.thesis.gui;
+package ga.thesis.gui.main;
 
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
-import javax.swing.GroupLayout;
-import javax.swing.LayoutStyle;
-import javax.swing.border.*;
 import ga.thesis.entities.Test;
-import java.awt.Component;
-import java.awt.Font;
-import java.awt.Toolkit;
+
+import javax.swing.*;
+import javax.swing.border.LineBorder;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
-import static javax.swing.JTable.AUTO_RESIZE_ALL_COLUMNS;
-import javax.swing.JTextArea;
-import javax.swing.table.DefaultTableCellRenderer;
-import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableCellRenderer;
 
 /**
  *
@@ -426,7 +416,7 @@ public class GUIForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         GAParameters form = new GAParameters();
-        form.show();
+        form.setVisible(true);
     }//GEN-LAST:event_jMenu5MouseClicked
 
     /**

@@ -4,13 +4,12 @@
  * and open the template in the editor.
  */
 
-package ga.thesis.gui;
+package ga.thesis.gui.main;
 
-import java.awt.*;
-import java.awt.event.*;
 import javax.swing.*;
-import javax.swing.GroupLayout;
-import javax.swing.LayoutStyle;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  *
@@ -32,7 +31,7 @@ public class DBSettings extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    // Generated using JFormDesigner Evaluation license - Marianna Pasichnyk
+    // Generated using JFormDesigner Evaluation license - Mike Kravchenko
     private void initComponents() {
         jLabel1 = new JLabel();
         jButton1 = new JButton();
@@ -187,7 +186,7 @@ public class DBSettings extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Marianna Pasichnyk
+    // Generated using JFormDesigner Evaluation license - Mike Kravchenko
     private JLabel jLabel1;
     private JButton jButton1;
     private JButton jButton2;
