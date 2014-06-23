@@ -2,9 +2,9 @@ package ga.thesis.hibernate.service;
 
 import ga.thesis.hibernate.entities.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
@@ -20,7 +20,6 @@ import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-import javax.annotation.Resource;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
@@ -32,8 +31,8 @@ import java.util.Properties;
 @EnableTransactionManagement
 @EnableJpaRepositories(basePackages = "ga.thesis.hibernate")
 @PropertySource({"classpath:persistence-mysql.properties"})
-@ComponentScan(basePackages = "ga.thesis.hibernate")
-public class PersistenceConfig implements CommandLineRunner {
+@ComponentScan(basePackages = {"ga.thesis.hibernate", "ga.thesis.gui.table"})
+public class PersistenceConfig {
 
     @Autowired
     private Environment environment;
@@ -67,7 +66,20 @@ public class PersistenceConfig implements CommandLineRunner {
 
 
     public static void main(String[] args) {
-        SpringApplication.run(PersistenceConfig.class, args);
+        ApplicationContext applicationContext = runService(args);
+        PersistenceConfig bean = applicationContext.getBean(PersistenceConfig.class);
+        bean.run(args);
+    }
+
+    public static ApplicationContext runService(String[] args) {
+        ConfigurableApplicationContext run = SpringApplication.run(PersistenceConfig.class, args);
+        return run;
+    }
+
+    private static PersistenceConfig getContext() {
+        ApplicationContext applicationContext = runService(new String [] {});
+        PersistenceConfig bean = applicationContext.getBean(PersistenceConfig.class);
+        return bean;
     }
 
     @Bean
@@ -139,8 +151,7 @@ public class PersistenceConfig implements CommandLineRunner {
         };
     }
 
-    @Override
-    public void run(String... strings) throws Exception {
+    public void run(String... strings) {
         Teacher teacher = new Teacher();
         teacher.setName("del");
         AbsenceMatrix absenceMatrix = new AbsenceMatrix();
@@ -197,5 +208,65 @@ public class PersistenceConfig implements CommandLineRunner {
         group.setGroupNumber(1);
         group.setIdGroupCode(groupCode);
         groupService.create(group);
+    }
+
+    public TeacherService getTeacherService() {
+        return teacherService;
+    }
+
+    public AbsenceMatrixService getAbsenceMatrixService() {
+        return absenceMatrixService;
+    }
+
+    public AbsencePeriodService getAbsencePeriodService() {
+        return absencePeriodService;
+    }
+
+    public AuditoryService getAuditoryService() {
+        return auditoryService;
+    }
+
+    public StudentListService getStudentListService() {
+        return studentListService;
+    }
+
+    public GroupListService getGroupListService() {
+        return groupListService;
+    }
+
+    public PeriodService getPeriodService() {
+        return periodService;
+    }
+
+    public GroupService getGroupService() {
+        return groupService;
+    }
+
+    public GroupCodeService getGroupCodeService() {
+        return groupCodeService;
+    }
+
+    public static PersistenceConfig getInstance() {
+        return PersistenceUtils.getInstance().getConfig();
+    }
+
+    public static class PersistenceUtils {
+        private final PersistenceConfig config;
+
+        private PersistenceUtils() {
+            config = PersistenceConfig.getContext();
+        }
+
+        public PersistenceConfig getConfig() {
+            return config;
+        }
+
+        public static class Holder {
+            private static PersistenceUtils persistenceUtils = new PersistenceUtils();
+        }
+
+        public static PersistenceUtils getInstance() {
+            return Holder.persistenceUtils;
+        }
     }
 }
