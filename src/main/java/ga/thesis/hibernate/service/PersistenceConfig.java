@@ -155,6 +155,7 @@ public class PersistenceConfig {
         Teacher teacher = new Teacher();
         teacher.setName("del");
         AbsenceMatrix absenceMatrix = new AbsenceMatrix();
+        absenceMatrix.setAbsenceMatrixName("Maтриця Олецького");
         absenceMatrixService.create(absenceMatrix);
         teacher.setIdAbsenceMatrix(absenceMatrix);
         teacherService.create(teacher);
@@ -169,6 +170,7 @@ public class PersistenceConfig {
 
         //groupList
         GroupList groupList = new GroupList();
+        groupList.setGroupName("ГА1");
         groupListService.create(groupList);
 
         //studentList

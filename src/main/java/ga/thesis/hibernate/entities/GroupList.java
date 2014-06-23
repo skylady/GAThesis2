@@ -15,6 +15,17 @@ public class GroupList implements Serializable {
     @Column(name = "id")
     private long id;
 
+    @Column(name = "groupName", nullable = false)
+    private String groupName;
+
+    public String getGroupName() {
+        return groupName;
+    }
+
+    public void setGroupName(String groupName) {
+        this.groupName = groupName;
+    }
+
     public long getId() {
         return id;
     }
