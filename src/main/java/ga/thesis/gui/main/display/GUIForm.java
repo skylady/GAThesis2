@@ -3,9 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ga.thesis.gui.main;
+package ga.thesis.gui.main.display;
 
 import ga.thesis.entities.Test;
+import ga.thesis.gui.main.parameters.GAParameters;
 
 import javax.swing.*;
 import javax.swing.border.LineBorder;
@@ -185,7 +186,7 @@ public class GUIForm extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    // Generated using JFormDesigner Evaluation license - Marianna Pasichnyk
+    // Generated using JFormDesigner Evaluation license - Mike Kravchenko
     private void initComponents() {
         jMenuBar1 = new JMenuBar();
         jMenu2 = new JMenu();
@@ -455,7 +456,7 @@ public class GUIForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Marianna Pasichnyk
+    // Generated using JFormDesigner Evaluation license - Mike Kravchenko
     private JMenuBar jMenuBar1;
     private JMenu jMenu2;
     private JMenu jMenu6;

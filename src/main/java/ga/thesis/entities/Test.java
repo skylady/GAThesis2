@@ -1,7 +1,7 @@
 package ga.thesis.entities;
 
 import ga.thesis.crossover.PMX;
-import ga.thesis.gui.main.GUIForm;
+import ga.thesis.gui.main.display.GUIForm;
 import ga.thesis.mutation.ExchangeMutation;
 import ga.thesis.restrictions.HardRestrictions;
 import ga.thesis.restrictions.SoftRestrictions;

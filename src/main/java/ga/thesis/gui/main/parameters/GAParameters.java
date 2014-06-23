@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package ga.thesis.gui.main;
+package ga.thesis.gui.main.parameters;
 
 import java.awt.*;
 import java.awt.event.*;

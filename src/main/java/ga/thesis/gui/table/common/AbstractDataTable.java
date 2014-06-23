@@ -2,15 +2,12 @@
  * Created by JFormDesigner on Sun Jun 22 20:03:21 EEST 2014
  */
 
-package ga.thesis.gui.db;
+package ga.thesis.gui.table.common;
 
-import ga.thesis.gui.table.async.CustomSwingWorker;
-import ga.thesis.gui.table.model.GroupTableModel;
-import ga.thesis.gui.table.settings.group.GroupSettingsDialog;
-import ga.thesis.hibernate.entities.Group;
-import ga.thesis.hibernate.service.PersistenceConfig;
+import ga.thesis.gui.table.settings.common.AbstractSettingsDialog;
 
 import javax.swing.*;
+import javax.swing.table.TableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,44 +17,45 @@ import static ga.thesis.gui.table.settings.common.AbstractSettingsDialog.SaveLis
 /**
  * @author Marianna Pasichnyk
  */
-public class DBData extends JPanel {
-    private JFrame frame;
+public abstract class AbstractDataTable<T, M extends TableModel> extends JPanel {
+    protected JFrame frame;
 
-    public DBData(JFrame parent) {
+    public AbstractDataTable(JFrame parent) {
         this.frame = parent;
         initComponents();
     }
 
+    private void init() {
+        dataTable.setModel(getDefaultModel());
+    }
+
     private void addButtonActionPerformed(ActionEvent e) {
-        SaveListener saveListener = new SaveListener() {
-            @Override
-            public void onSave(Object model) {
-                doLoad();
-            }
-        };
-        new GroupSettingsDialog(frame, saveListener).setVisible(true);
+        getDialog().setVisible(true);
     }
 
     private void loadButtonActionPerformed(ActionEvent e) {
         doLoad();
     }
 
-    protected void doLoad() {
-        new CustomSwingWorker<Group>(table1) {
-            @Override
-            protected Iterable<Group> load() {
-                return PersistenceConfig.getInstance().getGroupService().findAll();
-            }
-        }.execute();
+    protected abstract void doLoad();
+
+    protected abstract M getDefaultModel();
+
+    protected abstract AbstractSettingsDialog<T> getDialog();
+
+    public class SaveListenerImpl<T> implements SaveListener<T> {
+        @Override
+        public void onSave(T model) {
+            doLoad();
+        }
     }
 
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Mike Kravchenko
         scrollPane2 = new JScrollPane();
-        table1 = new JTable();
+        dataTable = new JTable();
         toolBar1 = new JToolBar();
-        comboBox1 = new JComboBox();
         loadButton = new JButton();
         addButton = new JButton();
 
@@ -66,7 +64,7 @@ public class DBData extends JPanel {
         // JFormDesigner evaluation mark
         setBorder(new javax.swing.border.CompoundBorder(
                 new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(0, 0, 0, 0),
-                        "", javax.swing.border.TitledBorder.CENTER,
+                        "JFormDesigner Evaluation", javax.swing.border.TitledBorder.CENTER,
                         javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
                         java.awt.Color.red), getBorder()));
         addPropertyChangeListener(new java.beans.PropertyChangeListener() {
@@ -79,13 +77,13 @@ public class DBData extends JPanel {
 
         //======== scrollPane2 ========
         {
-            scrollPane2.setViewportView(table1);
+            scrollPane2.setViewportView(dataTable);
         }
         add(scrollPane2, BorderLayout.CENTER);
 
         //======== toolBar1 ========
         {
-            toolBar1.add(comboBox1);
+            toolBar1.setBorderPainted(false);
 
             //---- loadButton ----
             loadButton.setText("load");
@@ -109,15 +107,14 @@ public class DBData extends JPanel {
         }
         add(toolBar1, BorderLayout.NORTH);
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
-        table1.setModel(new GroupTableModel());
+        init();
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - Mike Kravchenko
     private JScrollPane scrollPane2;
-    private JTable table1;
+    protected JTable dataTable;
     private JToolBar toolBar1;
-    private JComboBox comboBox1;
     private JButton loadButton;
     private JButton addButton;
     // JFormDesigner - End of variables declaration  //GEN-END:variables

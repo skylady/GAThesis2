@@ -1,7 +1,7 @@
-package ga.thesis.gui.db;
+package ga.thesis.gui.main;
 
 
-import ga.thesis.gui.main.GUIForm;
+import ga.thesis.gui.main.display.GUIForm;
 
 public class MainFrame {
     /**
@@ -29,7 +29,7 @@ public class MainFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new GroupFrame().setVisible(true);
+                new DatabaseEditorFrame().setVisible(true);
             }
         });
     }

@@ -8,16 +8,17 @@ new FormModel {
 			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 				name: "scrollPane2"
 				add( new FormComponent( "javax.swing.JTable" ) {
-					name: "table1"
+					name: "dataTable"
+					auxiliary() {
+						"JavaCodeGenerator.variableModifiers": 4
+					}
 				} )
 			}, new FormLayoutConstraints( class java.lang.String ) {
 				"value": "Center"
 			} )
 			add( new FormContainer( "javax.swing.JToolBar", new FormLayoutManager( class javax.swing.JToolBar ) ) {
 				name: "toolBar1"
-				add( new FormComponent( "javax.swing.JComboBox" ) {
-					name: "comboBox1"
-				} )
+				"borderPainted": false
 				add( new FormComponent( "javax.swing.JButton" ) {
 					name: "loadButton"
 					"text": "load"
