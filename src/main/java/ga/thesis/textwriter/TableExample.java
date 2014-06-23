@@ -103,7 +103,9 @@ public class TableExample {
                     new FileOutputStream("Timetable.pdf"));
 
             document.open();
-            Font f = new Font(unicode, 9);
+            Font f = new Font(unicode, 14);
+
+            // PdfPTable table = new PdfPTable(6);
 
             //list or not list size?
             for (int m = 0; m < map.size(); m++) {
