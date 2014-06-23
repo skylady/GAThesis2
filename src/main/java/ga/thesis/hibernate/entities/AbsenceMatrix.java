@@ -15,6 +15,17 @@ public class AbsenceMatrix implements Serializable {
     @Column(name = "id", nullable = false)
     private long id;
 
+    @Column(name = "absenceMatrixName", nullable = false)
+    private String absenceMatrixName;
+
+    public String getAbsenceMatrixName() {
+        return absenceMatrixName;
+    }
+
+    public void setAbsenceMatrixName(String absenceMatrixName) {
+        this.absenceMatrixName = absenceMatrixName;
+    }
+
     public long getId() {
         return id;
     }
