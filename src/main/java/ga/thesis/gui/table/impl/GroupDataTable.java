@@ -1,6 +1,7 @@
 package ga.thesis.gui.table.impl;
 
-import ga.thesis.gui.table.async.CustomSwingWorker;
+import ga.thesis.gui.table.async.DeleteSwingWorker;
+import ga.thesis.gui.table.async.LoadSwingWorker;
 import ga.thesis.gui.table.common.AbstractDataTable;
 import ga.thesis.gui.table.model.GroupTableModel;
 import ga.thesis.gui.table.settings.common.AbstractSettingsDialog;
@@ -9,6 +10,7 @@ import ga.thesis.hibernate.entities.Group;
 import ga.thesis.hibernate.service.PersistenceConfig;
 
 import javax.swing.*;
+import java.util.List;
 
 public class GroupDataTable extends AbstractDataTable<Group, GroupTableModel> {
 
@@ -17,8 +19,26 @@ public class GroupDataTable extends AbstractDataTable<Group, GroupTableModel> {
     }
 
     @Override
+    protected void doDelete(List<Group> selected) {
+        new DeleteSwingWorker<Group>(selected) {
+
+            @Override
+            protected void afterDelete() {
+                JOptionPane.showMessageDialog(getParent(), "Deleted");
+                doLoad();
+            }
+
+            @Override
+            protected void doDelete(Group model) {
+                PersistenceConfig.getInstance().getGroupService().delete(model);
+            }
+
+        }.execute();
+    }
+
+    @Override
     protected void doLoad() {
-        new CustomSwingWorker<Group>(dataTable) {
+        new LoadSwingWorker<Group>(dataTable) {
             @Override
             protected Iterable<Group> load() {
                 return PersistenceConfig.getInstance().getGroupService().findAll();

@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public abstract class CustomSwingWorker<T> extends SwingWorker<List<T>, T> {
+public abstract class LoadSwingWorker<T> extends SwingWorker<List<T>, T> {
 
     private JTable table;
 
-    public CustomSwingWorker(JTable table) {
+    public LoadSwingWorker(JTable table) {
         this.table = table;
     }
 

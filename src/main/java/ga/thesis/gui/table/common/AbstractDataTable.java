@@ -4,20 +4,22 @@
 
 package ga.thesis.gui.table.common;
 
+import ga.thesis.gui.table.model.TimeTableAbstractTableModel;
 import ga.thesis.gui.table.settings.common.AbstractSettingsDialog;
 
 import javax.swing.*;
-import javax.swing.table.TableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import static ga.thesis.gui.table.settings.common.AbstractSettingsDialog.SaveListener;
 
 /**
  * @author Marianna Pasichnyk
  */
-public abstract class AbstractDataTable<T, M extends TableModel> extends JPanel {
+public abstract class AbstractDataTable<T, M extends TimeTableAbstractTableModel<T>> extends JPanel {
     protected JFrame frame;
 
     public AbstractDataTable(JFrame parent) {
@@ -36,6 +38,22 @@ public abstract class AbstractDataTable<T, M extends TableModel> extends JPanel 
     private void loadButtonActionPerformed(ActionEvent e) {
         doLoad();
     }
+
+    private void deleteButtonActionPerformed(ActionEvent e) {
+        int[] selectedRows = dataTable.getSelectedRows();
+        if (selectedRows == null || selectedRows.length < 1) {
+            return;
+        }
+        List<T> selected = new ArrayList<T>();
+        for (Integer i: selectedRows) {
+            int index = dataTable.convertRowIndexToModel(i);
+            T model = ((M) dataTable.getModel()).getAtRow(index);
+            selected.add(model);
+        }
+        doDelete(selected);
+    }
+
+    protected abstract void doDelete(List<T> selected);
 
     protected abstract void doLoad();
 
@@ -58,20 +76,16 @@ public abstract class AbstractDataTable<T, M extends TableModel> extends JPanel 
         toolBar1 = new JToolBar();
         loadButton = new JButton();
         addButton = new JButton();
+        deleteButton = new JButton();
 
         //======== this ========
 
         // JFormDesigner evaluation mark
         setBorder(new javax.swing.border.CompoundBorder(
-                new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(0, 0, 0, 0),
-                        "JFormDesigner Evaluation", javax.swing.border.TitledBorder.CENTER,
-                        javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
-                        java.awt.Color.red), getBorder()));
-        addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-            public void propertyChange(java.beans.PropertyChangeEvent e) {
-                if ("border".equals(e.getPropertyName())) throw new RuntimeException();
-            }
-        });
+            new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(0, 0, 0, 0),
+                "JFormDesigner Evaluation", javax.swing.border.TitledBorder.CENTER,
+                javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
+                java.awt.Color.red), getBorder())); addPropertyChangeListener(new java.beans.PropertyChangeListener(){public void propertyChange(java.beans.PropertyChangeEvent e){if("border".equals(e.getPropertyName()))throw new RuntimeException();}});
 
         setLayout(new BorderLayout());
 
@@ -104,6 +118,16 @@ public abstract class AbstractDataTable<T, M extends TableModel> extends JPanel 
                 }
             });
             toolBar1.add(addButton);
+
+            //---- deleteButton ----
+            deleteButton.setText("-");
+            deleteButton.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    deleteButtonActionPerformed(e);
+                }
+            });
+            toolBar1.add(deleteButton);
         }
         add(toolBar1, BorderLayout.NORTH);
         // JFormDesigner - End of component initialization  //GEN-END:initComponents
@@ -117,5 +141,6 @@ public abstract class AbstractDataTable<T, M extends TableModel> extends JPanel 
     private JToolBar toolBar1;
     private JButton loadButton;
     private JButton addButton;
+    private JButton deleteButton;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }

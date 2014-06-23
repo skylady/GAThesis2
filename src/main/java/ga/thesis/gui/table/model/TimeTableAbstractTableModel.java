@@ -57,6 +57,8 @@ public abstract class TimeTableAbstractTableModel<T> extends AbstractTableModel 
         return getColumnClasses()[col];
     }
 
+    public T getAtRow(int row) {return rows.get(row); }
+
     @Override
     public abstract Object getValueAt(int rowIndex, int columnIndex);
 
