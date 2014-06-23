@@ -27,7 +27,7 @@ public abstract class AbstractDataTable<T, M extends TimeTableAbstractTableModel
         initComponents();
     }
 
-    private void init() {
+    protected void init() {
         dataTable.setModel(getDefaultModel());
     }
 

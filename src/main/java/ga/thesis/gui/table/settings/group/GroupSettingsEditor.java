@@ -4,7 +4,8 @@
 
 package ga.thesis.gui.table.settings.group;
 
-import ga.thesis.gui.components.ComboBoxRenderer;
+import ga.thesis.gui.table.common.table.GroupCodeComboBoxRenderer;
+import ga.thesis.gui.table.common.table.GroupCodeComboBoxWorker;
 import ga.thesis.gui.table.settings.common.Editor;
 import ga.thesis.hibernate.entities.Group;
 import ga.thesis.hibernate.entities.GroupCode;
@@ -86,13 +87,8 @@ public class GroupSettingsEditor extends JPanel implements Editor<Group> {
 
     private JComboBox<GroupCode> getGroupCodeField() {
         JComboBox<GroupCode> groupCodeId = new JComboBox<GroupCode>();
-        groupCodeId.setRenderer(new ComboBoxRenderer<GroupCode>() {
-            @Override
-            public String render(GroupCode model) {
-                return model == null ? "" : model.getSubject() + " " + model.getSubjectType();
-            }
-        });
-        new GroupComboBoxWorker(groupCodeId).execute();
+        groupCodeId.setRenderer(new GroupCodeComboBoxRenderer());
+        new GroupCodeComboBoxWorker(groupCodeId).execute();
         return groupCodeId;
     }
 

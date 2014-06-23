@@ -8,12 +8,12 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "AbsenceMatrix")
-public class AbsenceMatrix implements Serializable {
+public class AbsenceMatrix implements Serializable, HasId<Long> {
     private static final long serialVersionUID = -5170875020617735651L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", nullable = false)
-    private long id;
+    private Long id;
 
     @Column(name = "absenceMatrixName", nullable = false)
     private String absenceMatrixName;
@@ -26,11 +26,11 @@ public class AbsenceMatrix implements Serializable {
         this.absenceMatrixName = absenceMatrixName;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 }

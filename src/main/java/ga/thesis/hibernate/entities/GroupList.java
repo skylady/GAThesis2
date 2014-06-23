@@ -8,12 +8,12 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "GroupList")
-public class GroupList implements Serializable {
+public class GroupList implements Serializable, HasId<Long> {
     private static final long serialVersionUID = -5170875020617735657L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
-    private long id;
+    private Long id;
 
     @Column(name = "groupName", nullable = false)
     private String groupName;
@@ -26,11 +26,11 @@ public class GroupList implements Serializable {
         this.groupName = groupName;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 }

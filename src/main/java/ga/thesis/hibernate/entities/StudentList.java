@@ -9,12 +9,12 @@ import java.io.Serializable;
 
 @Entity
 @Table(name="StudentList")
-public class StudentList implements Serializable {
+public class StudentList implements Serializable, HasId<Long> {
     private static final long serialVersionUID = -5170875020617735656L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name="id")
-    private long id;
+    private Long id;
 
     @Column (name = "student_name",nullable=false)
     private String studentName;
@@ -23,11 +23,11 @@ public class StudentList implements Serializable {
     @JoinColumn(name = "group_list_id")
     private GroupList idGroupList;
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
