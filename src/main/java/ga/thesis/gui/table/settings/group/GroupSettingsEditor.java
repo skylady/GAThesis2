@@ -12,10 +12,6 @@ import ga.thesis.hibernate.entities.GroupCode;
 
 import javax.swing.*;
 import java.awt.*;
-
-/**
- * @author Mike Kravchenko
- */
 public class GroupSettingsEditor extends JPanel implements Editor<Group> {
     public GroupSettingsEditor() {
         initComponents();
@@ -118,7 +114,6 @@ public class GroupSettingsEditor extends JPanel implements Editor<Group> {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Mike Kravchenko
     private JPanel panel1;
     private JLabel label5;
     private JTextField groupNumber;
