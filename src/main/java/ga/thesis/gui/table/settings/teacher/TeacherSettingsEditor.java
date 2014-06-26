@@ -5,6 +5,7 @@
 package ga.thesis.gui.table.settings.teacher;
 
 import ga.thesis.gui.components.ComboBoxRenderer;
+import ga.thesis.gui.table.common.table.TeacherComboBoxRendererList;
 import ga.thesis.gui.table.common.table.TeacherComboBoxWorker;
 import ga.thesis.gui.table.settings.common.Editor;
 import ga.thesis.hibernate.entities.AbsenceMatrix;
@@ -68,12 +69,7 @@ public class TeacherSettingsEditor extends JPanel implements Editor<Teacher> {
 
     private JComboBox<AbsenceMatrix> getAbsenceMatrixField() {
         JComboBox<AbsenceMatrix> absenceMatrixId = new JComboBox<AbsenceMatrix>();
-        absenceMatrixId.setRenderer(new ComboBoxRenderer<AbsenceMatrix>() {
-            @Override
-            public String render(AbsenceMatrix model) {
-                return model == null ? "" : model.getAbsenceMatrixName();
-            }
-        });
+        absenceMatrixId.setRenderer(new TeacherComboBoxRendererList());
         new TeacherComboBoxWorker(absenceMatrixId).execute();
         return absenceMatrixId;
     }

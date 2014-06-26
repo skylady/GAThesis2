@@ -8,7 +8,7 @@ import ga.thesis.hibernate.service.PersistenceConfig;
 /**
  * Created by sky_lady on 6/24/14.
  */
-public class PeriodTabelModel extends  TimeTableAbstractTableModel<Period> {
+public class PeriodTableModel extends  TimeTableAbstractTableModel<Period> {
 
     @Override
     public int getColumnCount() {
@@ -22,7 +22,7 @@ public class PeriodTabelModel extends  TimeTableAbstractTableModel<Period> {
 
     @Override
     public Class[] getColumnClasses() {
-        return new Class[] {Long.class, Integer.class, Integer.class, String.class };
+        return new Class[] {Long.class, Integer.class, String.class };
     }
 
     @Override

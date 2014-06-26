@@ -5,6 +5,7 @@
 package ga.thesis.gui.table.settings.studentlist;
 
 import ga.thesis.gui.components.ComboBoxRenderer;
+import ga.thesis.gui.table.common.table.StudentListComboBoxRendererList;
 import ga.thesis.gui.table.common.table.StudentListComboBoxWorker;
 import ga.thesis.gui.table.settings.common.Editor;
 import ga.thesis.hibernate.entities.GroupList;
@@ -68,12 +69,7 @@ public class StudentListSettingsEditor extends JPanel implements Editor<StudentL
 
     private JComboBox<GroupList> getAbsenceMatrixField() {
         JComboBox<GroupList> groupListId = new JComboBox<GroupList>();
-        groupListId.setRenderer(new ComboBoxRenderer<GroupList>() {
-            @Override
-            public String render(GroupList model) {
-                return model == null ? "" : model.getGroupName();
-            }
-        });
+        groupListId.setRenderer(new StudentListComboBoxRendererList());
         new StudentListComboBoxWorker(groupListId).execute();
         return groupListId;
     }

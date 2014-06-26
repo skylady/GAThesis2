@@ -210,6 +210,13 @@ public class PersistenceConfig {
         group.setGroupNumber(1);
         group.setIdGroupCode(groupCode);
         groupService.create(group);
+
+    }
+
+
+    public void createAuditories() {
+
+        auditoryService.findAll();
     }
 
     public TeacherService getTeacherService() {

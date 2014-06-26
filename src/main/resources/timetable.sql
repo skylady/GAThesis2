@@ -19,6 +19,7 @@ USE `timetable` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `timetable`.`AbsenceMatrix` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
+  `absenceMatrixName` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 11
@@ -77,6 +78,7 @@ DEFAULT CHARACTER SET = utf8 COLLATE utf8_general_ci ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `timetable`.`GroupList` (
   `id` INT(11) NOT NULL AUTO_INCREMENT,
+    `groupName` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB
 AUTO_INCREMENT = 11
